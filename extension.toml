@@ -1,0 +1,22 @@
+id = "flutter"
+name = "Flutter"
+description = "Flutter and Dart support: language server (FVM-aware), debug adapter, tasks and snippets."
+version = "0.1.0"
+schema_version = 1
+authors = ["alexander <notalexander24@gmail.com>"]
+repository = "https://github.com/dea6cat/zed-flutter"
+snippets = "./snippets/dart.json"
+
+[language_servers.dart]
+name = "Dart LSP"
+language = "Dart"
+languages = ["Dart"]
+
+[grammars.dart]
+repository = "https://github.com/UserNobody14/tree-sitter-dart"
+commit = "6922ad29141e819773d6ffb0c6d2c27adefb5acc"
+
+[debug_adapters.Dart]
+# Optional relative path to the JSON schema for the debug adapter configuration schema. Defaults to `debug_adapter_schemas/$DEBUG_ADAPTER_NAME_ID.json`.
+# Note that while this field is optional, a schema is mandatory.
+# schema_path = "relative/path/to/schema.json"

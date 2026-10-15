@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dart Debug Adapter Configuration",
+  "type": "object",
+  "properties": {
+    "adapter": {
+      "type": "string",
+      "enum": [
+        "Dart"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "dart",
+        "flutter"
+      ],
+      "description": "Debug Flutter or Dart file"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable name for this debug configuration",
+      "examples": [
+        "Launch Dart App",
+        "Debug Main",
+        "Dart Console"
+      ]
+    },
+    "program": {
+      "type": "string",
+      "description": "Path to the Dart file to debug",
+      "examples": [
+        "lib/main.dart",
+        "bin/main.dart",
+        "test/example_test.dart"
+      ]
+    },
+    "cwd": {
+      "type": "string",
+      "description": "Path to the working directory"
+    },
+    "useFvm": {
+      "type": "boolean",
+      "description": "Whether to use fvm to run the Dart/Flutter program"
+    },
+    "args": {
+      "type": "array",
+      "description": "Arguments passed to the Dart program.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "toolArgs": {
+      "type": "array",
+      "description": "Arguments passed to the Flutter/Dart tool (e.g. --flavor, -d chrome).",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables to set when launching the debug adapter.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "flutterMode": {
+      "type": "string",
+      "enum": [
+        "debug",
+        "profile",
+        "release",
+        "test"
+      ],
+      "description": "The Flutter mode to use.",
+      "default": "debug"
+    },
+    "deviceId": {
+      "type": "string",
+      "description": "The device to launch on, passed to the Flutter tool as `-d <deviceId>`. Ignored if toolArgs already contains -d/--device-id. If unset, Flutter auto-picks a device.",
+      "examples": [
+        "chrome",
+        "edge",
+        "<android-id>",
+        "<ios-id>"
+      ]
+    },
+    "platform": {
+      "type": "string",
+      "examples": [
+        "web",
+        "desktop"
+      ]
+    },
+    "request": {
+      "type": "string",
+      "enum": [
+        "launch",
+        "attach"
+      ],
+      "description": "The debug request type",
+      "default": "launch"
+    },
+    "vmServiceUri": {
+      "type": "string",
+      "description": "The VM Service URI to attach to (for attach mode)"
+    },
+    "stopOnEntry": {
+      "type": "boolean",
+      "description": "Pause debugger on entry.",
+      "default": false
+    }
+  },
+  "required": [
+    "program",
+    "type",
+    "adapter"
+  ],
+  "additionalProperties": false
+}
